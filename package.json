@@ -1,0 +1,11 @@
+{
+  "name": "mysql-node-template",
+  "version": "1.0.0",
+  "description": "\"Template for dev in mysql and node\"",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "author": "FranciscoVeloz",
+  "license": "ISC"
+}
