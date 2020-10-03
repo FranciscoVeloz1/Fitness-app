@@ -14,5 +14,15 @@ controller.list = (req, res) => {
     })
 }
 
+controller.save = (req, res) => {
+    const data = req.body
+
+    req.getConnection((err, conn) => {
+        conn.query('insert into peso set ?', [data], (err, row) => {
+            console.log(row)
+            res.redirect('/')
+        })
+    })
+}
 
 module.exports = controller

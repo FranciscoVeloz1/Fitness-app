@@ -4,4 +4,6 @@ const router = express.Router()
 
 router.get('/', controller.list)
 
+router.post('/add', controller.save)
+
 module.exports = router
