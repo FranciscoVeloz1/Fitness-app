@@ -3,10 +3,13 @@
 
     <thead>
         <tr>
-            <td>n°</td>
-            <td>Nombre</td>
-            <td>Descripcion</td>
-            <td>Actions</td>
+            <td>ID</td>
+            <td>Fecha</td>
+            <td>Distancia(km)</td>
+            <td>Tiempo(min)</td>
+            <td>Calorias</td>
+            <td>Peso(kg)</td>
+            <td>Acciones</td>
         </tr>
     </thead>
 
@@ -15,11 +18,14 @@
         <% for(let i = 0; i < data.length; i++) { %>
         <tr>
             <td><%= (i + 1) %></td>
-            <td><%= data[i].name %></td>
-            <td><%= data[i].description %></td>
+            <td><%= data[i].fecha %></td>
+            <td><%= data[i].distancia %></td>
+            <td><%= data[i].tiempo %></td>
+            <td><%= data[i].calorias %></td>
+            <td><%= data[i].peso %></td>
             <td>
-                <a href="/update/<%= data[i].id %>" class="btn btn-info">Edit</a>
-                <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
+                <a href="/update/<%= data[i].id %>" class="btn btn-info">Editar</a>
+                <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
         <% } %>
