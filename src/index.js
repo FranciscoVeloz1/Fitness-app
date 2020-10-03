@@ -12,7 +12,7 @@ const app = express()
 const database = require('./database/keys.js')
 
 //Importing routes
-//Example const cardRoutes = require('./routes/cards')
+const mainRoute = require('./routes/main.js');
 
 //Settings
 app.set('port', process.env.PORT || 4000)
@@ -25,7 +25,7 @@ app.use(myconnection(mysql, database, 'single'))
 app.use(express.urlencoded({ extended: false }))
 
 //Routes
-//Example app.use('/', cardRoutes);
+app.use('/', mainRoute);
 
 //Static Files
 app.use(express.static(path.join(__dirname, 'public')))
