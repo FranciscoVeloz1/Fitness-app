@@ -1,0 +1,35 @@
+
+<table class="table table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Fecha</td>
+            <td>Distancia(km)</td>
+            <td>Tiempo(min)</td>
+            <td>Calorias</td>
+            <td>Peso(kg)</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% if (data) { %>
+        <% for(let i = 0; i < data.length; i++) { %>
+        <tr>
+            <td><%= (i + 1) %></td>
+            <td><%= data[i].fecha %></td>
+            <td><%= data[i].distancia %></td>
+            <td><%= data[i].tiempo %></td>
+            <td><%= data[i].calorias %></td>
+            <td><%= data[i].peso %></td>
+            <td>
+                <a href="/update/<%= data[i].id %>" class="btn btn-info">Editar</a>
+                <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        <% } %>
+        <% } %>
+    </tbody>
+
+</table>
