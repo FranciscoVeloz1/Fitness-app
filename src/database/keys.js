@@ -3,7 +3,7 @@ const database = {
     user: 'root',
     password: '', 
     port: '3306',
-    database: ''
+    database: 'fitness'
 }
 
 module.exports = database
