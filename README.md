@@ -1,2 +1,2 @@
 # Fitness-app
-Simple CRUD did it with mysql and nodejs
+Simple CRUD made with mysql, nodejs and ejs
