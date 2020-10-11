@@ -9,7 +9,7 @@ const myconnection = require('express-myconnection')
 const database = require('./database/keys.js')
 
 //Importing routes
-const mainRoute = require('./routes/main.js');
+const mainRoute = require('./routes/main.js')
 
 class Server {
     constructor() {

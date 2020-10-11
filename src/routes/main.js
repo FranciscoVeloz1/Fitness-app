@@ -8,8 +8,11 @@ class MainRouter {
     }
 
     Config() {
-        this.router.get('/', controller.list)
-        this.router.post('/add', controller.save)
+        this.router.get('/', controller.List)
+        this.router.post('/add', controller.Save)
+        this.router.get('/update/:id', controller.Edit)
+        this.router.post('/update/:id', controller.Update)
+        this.router.get('/delete/:id', controller.Delete)
     }
 }
 
