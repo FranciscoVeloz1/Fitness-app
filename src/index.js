@@ -5,32 +5,47 @@ const morgan = require('morgan')
 const mysql = require('mysql')
 const myconnection = require('express-myconnection')
 
-//Initialization
-const app = express()
-
 //Importing database key
 const database = require('./database/keys.js')
 
 //Importing routes
 const mainRoute = require('./routes/main.js');
 
-//Settings
-app.set('port', process.env.PORT || 4000)
-app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'))
+class Server {
+    constructor() {
+        this.app = express()
+        this.Settings()
+        this.Middleware()
+        this.Routes()
+        this.StaticFiles()
+    }
 
-//Middleware
-app.use(morgan('dev'))
-app.use(myconnection(mysql, database, 'single'))
-app.use(express.urlencoded({ extended: false }))
+    Settings() {
+        this.app.set('port', process.env.PORT || 4000)
+        this.app.set('view engine', 'ejs')
+        this.app.set('views', path.join(__dirname, 'views'))
+    }
 
-//Routes
-app.use('/', mainRoute);
+    Middleware() {
+        this.app.use(morgan('dev'))
+        this.app.use(myconnection(mysql, database, 'single'))
+        this.app.use(express.urlencoded({ extended: false }))
+    }
 
-//Static Files
-app.use(express.static(path.join(__dirname, 'public')))
+    Routes() {
+        this.app.use('/', mainRoute);
+    }
 
-//Starting server
-app.listen(app.get('port'), () => {
-    console.log('Server on port 4000')
-})
+    StaticFiles() {
+        this.app.use(express.static(path.join(__dirname, 'public')))
+    }
+
+    Start() {
+        this.app.listen(this.app.get('port'), () => {
+            console.log('Server on port ' + this.app.get('port'))
+        })
+    }
+}
+
+const server = new Server()
+server.Start()
