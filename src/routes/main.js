@@ -1,9 +1,18 @@
-const express = require('express')
+const { Router } = require('express')
 const controller = require('../controllers/mainController.js')
-const router = express.Router()
 
-router.get('/', controller.list)
+class MainRouter {
+    constructor() {
+        this.router = Router();
+        this.Config()
+    }
 
-router.post('/add', controller.save)
+    Config() {
+        this.router.get('/', controller.list)
+        this.router.post('/add', controller.save)
+    }
+}
 
-module.exports = router
+const mainRouter = new MainRouter()
+
+module.exports = mainRouter.router
