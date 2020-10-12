@@ -15,7 +15,7 @@ class Server {
     constructor() {
         this.app = express()
         this.Settings()
-        this.Middleware()
+        this.Config()
         this.Routes()
         this.StaticFiles()
     }
@@ -26,7 +26,7 @@ class Server {
         this.app.set('views', path.join(__dirname, 'views'))
     }
 
-    Middleware() {
+    Config() {
         this.app.use(morgan('dev'))
         this.app.use(myconnection(mysql, database, 'single'))
         this.app.use(express.urlencoded({ extended: false }))
@@ -42,7 +42,7 @@ class Server {
 
     Start() {
         this.app.listen(this.app.get('port'), () => {
-            console.log('Server on port ' + this.app.get('port'))
+            console.log(`Server on port ${this.app.get('port')}`)
         })
     }
 }

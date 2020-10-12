@@ -29,3 +29,19 @@ body {
     font-size: 35px;
     color: #2e2e2e;
 }
+
+.pie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2E2E2E;
+    height: 100px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.pie p {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}

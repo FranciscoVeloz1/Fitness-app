@@ -1,4 +1,4 @@
-class Controller {
+class mainController {
 
     List(req, res) {
         req.getConnection((err, conn) => {
@@ -62,6 +62,6 @@ class Controller {
     }
 }
 
-const controller = new Controller()
+const controller = new mainController()
 
 module.exports = controller

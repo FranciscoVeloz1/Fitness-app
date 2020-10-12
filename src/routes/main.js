@@ -16,6 +16,4 @@ class MainRouter {
     }
 }
 
-const mainRouter = new MainRouter()
-
-module.exports = mainRouter.router
+module.exports = new MainRouter().router
